@@ -11,9 +11,15 @@ function getRecipes(){
 }
 
 function getShoppingList(id){
-    return db('recipies/shopping-list').where('recipie_id', id)
+    return db('shopping-list')
+    .where('recipie_id', id)
+    .first()
 }
 
 function getInstructions(id){
-    return db('recipies/instructions').where('recipie_id'), id
+    return db('instructions')
+    .select('i.id', 'r.recipie_id', 'i_instructions')
+    .from('instructions as i')
+    .joing('recipies as r', 'r.recipie_id', '=', 'r.id')
+    .where('recipie_id', id)
 }
