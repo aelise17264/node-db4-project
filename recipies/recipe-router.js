@@ -19,7 +19,7 @@ router.get('/:id/shopping-list', (req, res) => {
     .then(items => {
         res.status(200).json({items})
     }).catch(error => {
-        res.status(500).json({message: 'Cannot find your shopping list'})
+        res.status(500).json({message: 'Cannot find your shopping-list list'})
     })
 })
 
